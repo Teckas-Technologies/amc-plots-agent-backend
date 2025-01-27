@@ -1,0 +1,18 @@
+name: FastAPI Deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  Deploy:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - run: mkdir -p ~/.ssh/
+    - run: echo "${{ secrets.SSH_PRIV_KEY }}" > ~/.ssh/id_rsa
+    - run: chmod 600 ~/.ssh/id_rsa
+    - run: ssh -t -o StrictHostKeyChecking=no -p ${{ secrets.HOST_PORT }} ${{ secrets.USERNAME }}@${{ secrets.HOST_IP }}  "/home/deploy/deploy_script.sh"

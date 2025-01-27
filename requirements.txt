@@ -1,0 +1,10 @@
+llama-index
+flask
+flask-cors
+openai
+python-dotenv
+llama-parse
+pymongo
+llama-index-readers-mongodb
+openpyxl
+llama-index-vector-stores-mongodb
