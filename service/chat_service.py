@@ -90,8 +90,6 @@ chat_engine = index.as_chat_engine(
                 - Collection: amc_agent_plots
                 - Fields: "sNo", "zone", "ward", "tpNo", "fpNo", "Status", "Purpose", "Area", "address", "possesionYN", "PossessionArea", "nameOfDept", "Use", "residentUnit", "residentArea", "commercialUnit", "commercialArea", "industrialUnit", "industrialArea", "otherUnits", "otherArea", "totalUnit", "totalArea", "entryNo", "Date", "compWallYN", "compWallNo", "infoEngg", "ownershipInstalled", "wellDeveloped", "Court", "year", "caseStatus", "openOrNot", "USE", "dateOfAllot", "situation", "publicPurpose"
 
-            User can also want to know the plot details by the serial number (sNo).
-
             JSON Response Structure:
             Your JSON response must include:
             {
@@ -125,7 +123,7 @@ def generate_chat_responses(user_id, query):
 
     str_response = str(response)
 
-    print(str_response)
+    print("RES: ",str_response)
 
     if str_response.startswith("```json") and str_response.endswith("```"):
         cleaned_response = str_response[len("```json"):-len("```")]
